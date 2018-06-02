@@ -37,10 +37,10 @@ import net.runelite.client.config.ConfigItem;
 public interface XpGlobesConfig extends Config
 {
 	@ConfigItem(
-		keyName = "enableTooltips",
-		name = "Enable Tooltips",
-		description = "Configures whether or not to show tooltips",
-		position = 0
+			keyName = "enableTooltips",
+			name = "Enable Tooltips",
+			description = "Configures whether or not to show tooltips",
+			position = 0
 	)
 	default boolean enableTooltips()
 	{

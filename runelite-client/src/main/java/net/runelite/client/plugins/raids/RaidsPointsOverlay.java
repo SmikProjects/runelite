@@ -61,8 +61,12 @@ public class RaidsPointsOverlay extends Overlay
 			return null;
 		}
 
-		int totalPoints = client.getVar(Varbits.TOTAL_POINTS);
-		int personalPoints = client.getVar(Varbits.PERSONAL_POINTS);
+		double totalPoints = client.getVar(Varbits.TOTAL_POINTS);
+		double personalPoints = client.getVar(Varbits.PERSONAL_POINTS);
+        int percentagePoints = 0;
+        if (totalPoints > 0){
+            percentagePoints = (int) ((personalPoints/totalPoints)*100);
+        }
 
 		panel.getChildren().clear();
 		panel.getChildren().add(LineComponent.builder()
@@ -75,7 +79,13 @@ public class RaidsPointsOverlay extends Overlay
 			.right(POINTS_FORMAT.format(personalPoints))
 			.build());
 
-		panel.getChildren().add(LineComponent.builder()
+        panel.getChildren().add(LineComponent.builder()
+                .left("Percentage:")
+                .right(String.valueOf(percentagePoints) + "%")
+                .build());
+
+
+        panel.getChildren().add(LineComponent.builder()
 			.left("Party size:")
 			.right(String.valueOf(client.getVar(Varbits.RAID_PARTY_SIZE)))
 			.build());
