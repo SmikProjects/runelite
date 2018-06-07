@@ -10,7 +10,6 @@ import net.runelite.client.config.ConfigItem;
         name = "XP Tracker",
         description = "Configuration for the XP Tracker plugin"
 )
-
 public interface XpTrackerConfig extends Config
 {
     @ConfigItem(
